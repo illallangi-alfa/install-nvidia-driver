@@ -1,0 +1,13 @@
+---
+install_nvidia_driver_packages:
+  raspbian: &raspbian
+  debian: &debian
+    - name: "nvidia-detect"
+    - name: "nvidia-driver"
+    - name: "nvidia-smi"
+    - name: "libcuda1"
+    - name: "libnvidia-encode1"
+    - name: "libnvcuvid1"
+    - name: "linux-headers-{{ ansible_kernel }}"
+  debian_armv7l: *raspbian
+  debian_x86_64: *debian

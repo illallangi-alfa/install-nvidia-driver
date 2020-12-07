@@ -1,0 +1,8 @@
+---
+- name: "Install nvidia-driver (debian)"
+  apt:
+    pkg: "{{ install_nvidia_driver_packages[(ansible_os_family | lower) + '_' + (ansible_architecture | lower)] | json_query('[].name')}}"
+    update_cache: yes
+    install_recommends: no
+  tags:
+    - "nvidia-driver"
